@@ -1,11 +1,11 @@
 package com.company.electricityBill.exceptionhandler;
 
 public class InvalidCustomerId extends RuntimeException{
-    String s;
-    public InvalidCustomerId(String s){
-        this.s = s;
+    String message;
+    public InvalidCustomerId(String message){
+        this.message = message;
     }
-    public String toString() {
-        return " " + s;
-    }
+   public String toString() {
+        return message;
+   }
 }
