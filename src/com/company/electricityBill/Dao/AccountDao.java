@@ -2,30 +2,32 @@ package com.company.electricityBill.Dao;
 
 import com.company.electricityBill.config.DbConnectivity;
 import com.company.electricityBill.model.AccountDetails;
-import com.company.electricityBill.model.TransactionDetails;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AccountDao implements Dao<AccountDetails>{
-
-    @Override
-    public AccountDetails getById(long id) throws SQLException {
-        String sql = "select Id, customerId, cardNumber, cvv, pin, balance, holderName from accountdetails where id = id";
+public class AccountDao implements Dao<AccountDetails> {
+    /**
+     *
+     * @param cardNumber of accountDetails class
+     * @return accountDetails
+     */
+    public AccountDetails getByCardNumber(long cardNumber) {
+        String sql = "select * from accountDetails where cardNumber =  " + cardNumber + "";
         try {
-            PreparedStatement ps = DbConnectivity.getConnection().prepareStatement(sql);
-            ps.setLong(1, id);
-
+            Connection connection = DbConnectivity.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 AccountDetails accountDetails = new AccountDetails();
                 accountDetails.setId(rs.getInt(1));
-                accountDetails.setCardNumber(rs.getString(2));
+                accountDetails.setCardNumber(rs.getLong(2));
                 accountDetails.setCvv(rs.getInt(3));
                 accountDetails.setPin(rs.getInt(4));
-                accountDetails.setBalance(rs.getString(5));
+                accountDetails.setBalance(rs.getLong(5));
                 accountDetails.setHolderName(rs.getString(6));
 
                 return accountDetails;
@@ -33,6 +35,11 @@ public class AccountDao implements Dao<AccountDetails>{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
+    }
+
+    @Override
+    public AccountDetails getById(long customerId) {
         return null;
     }
 

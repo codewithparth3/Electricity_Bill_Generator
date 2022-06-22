@@ -1,19 +1,26 @@
 package com.company.electricityBill.model;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
+
+/**
+ * represents TransactionDetails
+ */
 public class TransactionDetails {
     private int id;
-    private long customerId;
+    private String customerId;
     private String transactionId;
-    private int transactionTime;
+    private String transactionTime;
     private String transactionStatus;
-    private String amountPaid;
+    private double amountPaid;
 
-    public TransactionDetails() {
-        this.id = id;
+    public TransactionDetails(){}
+
+    public TransactionDetails(String customerId, String transactionId, String transactionTime, String transactionStatus, double amountPaid){
         this.customerId = customerId;
         this.transactionId = transactionId;
+        this.transactionTime =transactionTime;
         this.transactionStatus = transactionStatus;
-        this.transactionTime = transactionTime;
         this.amountPaid = amountPaid;
     }
 
@@ -25,11 +32,11 @@ public class TransactionDetails {
         this.id = id;
     }
 
-    public long getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(long customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
@@ -41,11 +48,11 @@ public class TransactionDetails {
         this.transactionId = transactionId;
     }
 
-    public int getTransactionTime() {
+    public String getTransactionTime() {
         return transactionTime;
     }
 
-    public void setTransactionTime(int transactionTime) {
+    public void setTransactionTime(String transactionTime) {
         this.transactionTime = transactionTime;
     }
 
@@ -57,12 +64,13 @@ public class TransactionDetails {
         this.transactionStatus = transactionStatus;
     }
 
-    public String getAmountPaid() {
+    public double getAmountPaid() {
         return amountPaid;
     }
 
-    public void setAmountPaid(String amountPaid) {
+    public void setAmountPaid(double amountPaid) {
         this.amountPaid = amountPaid;
     }
+
 }
 

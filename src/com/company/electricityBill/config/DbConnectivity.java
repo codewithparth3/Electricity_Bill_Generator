@@ -2,18 +2,14 @@ package com.company.electricityBill.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class DbConnectivity {
-
     public static Connection connection;
     public static Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Electricity?autoReconnect=true&useSSL=false", "root", "jerry");
-
             return connection;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -23,7 +19,6 @@ public class DbConnectivity {
         return getConnection();
     }
 }
-
 
     /*public ResultSet getConnection(String query) throws Exception {
         ResultSet rs = null;

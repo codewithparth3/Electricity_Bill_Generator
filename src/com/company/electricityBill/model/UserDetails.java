@@ -1,32 +1,30 @@
 package com.company.electricityBill.model;
 
+/**
+ * represents UserDetails
+ */
 public class UserDetails {
-    private int id;
-    private long customerId;
+    private String customerId;
     private String customerName;
     private String state;
     private int units;
+    private long wallet;
 
     public UserDetails() {
     }
 
-    public UserDetails(int id, long customerId, String customerName, String state, int units) {
-        this.id = id;
-        this.customerId = customerId;
-        this.customerName = customerName;
-        this.state = state;
-        this.units = units;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public long getCustomerId() {
+    /**
+     *
+     * @return long representing the UserDetail's CustomerId
+     */
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(long customerId) {
+    /**Sets the UserDetail's customerId
+     * @param customerId a long containing the UserDetail's customerId
+     */
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
@@ -53,4 +51,13 @@ public class UserDetails {
     public void setUnits(int units) {
         this.units = units;
     }
+
+    public long getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(long wallet) {
+        this.wallet = wallet;
+    }
+
 }
