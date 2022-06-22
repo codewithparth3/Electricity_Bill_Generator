@@ -1,15 +1,19 @@
 package com.company.electricityBill.service;
 
-enum State {
-    MADHYA_PRADESH, GUJARAT, RAJASTHAN, PUNJAB, UTTAR_PRADESH
-}
-
 public class BillCalculator {
+
     static double billAmount;
 
-    public static double calculate(int units, State state) {
+    /**
+     * calculate method contains the logic of bill calculator
+     *
+     * @param units
+     * @param state
+     * @return bill amount
+     */
+    public static double calculate(int units, String state) {
         switch (state) {
-            case MADHYA_PRADESH:
+            case "Madhya Pradesh":
                 if (units <= 100) {
                     billAmount = units * 4;
                 } else if (units <= 200) {
@@ -19,7 +23,8 @@ public class BillCalculator {
                 } else {
                     billAmount = 100 * 4 + 100 * 5 + 100 * 7 + units * 9;
                 }
-            case GUJARAT:
+                break;
+            case "Gujarat":
                 if (units <= 100) {
                     billAmount = units * 3;
                 } else if (units <= 200) {
@@ -29,7 +34,8 @@ public class BillCalculator {
                 } else {
                     billAmount = 100 * 3 + 100 * 3.5 + 100 * 5 + units * 7;
                 }
-            case RAJASTHAN:
+                break;
+            case "RAJASTHAN":
                 if (units <= 100) {
                     billAmount = units * 2;
                 } else if (units <= 200) {
@@ -39,7 +45,8 @@ public class BillCalculator {
                 } else {
                     billAmount = 100 * 2 + 100 * 4 + 100 * 6 + units * 8;
                 }
-            case PUNJAB:
+                break;
+            case "PUNJAB":
                 if (units <= 100) {
                     billAmount = units * 4;
 
@@ -52,7 +59,8 @@ public class BillCalculator {
                 } else {
                     billAmount = 100 * 4 + 100 * 5 + 100 * 6.5 + units * 8;
                 }
-            case UTTAR_PRADESH:
+                break;
+            case "UTTAR_PRADESH":
                 if (units <= 100) {
                     billAmount = units * 4.5;
 

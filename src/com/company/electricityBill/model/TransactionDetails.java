@@ -1,12 +1,15 @@
 package com.company.electricityBill.model;
 
+/**
+ * represents TransactionDetails
+ */
 public class TransactionDetails {
     private int id;
     private long customerId;
-    private String transactionId;
+    private long transactionId;
     private int transactionTime;
     private String transactionStatus;
-    private String amountPaid;
+    private long amountPaid;
 
     public TransactionDetails() {
         this.id = id;
@@ -33,11 +36,11 @@ public class TransactionDetails {
         this.customerId = customerId;
     }
 
-    public String getTransactionId() {
+    public long getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(String transactionId) {
+    public void setTransactionId(long transactionId) {
         this.transactionId = transactionId;
     }
 
@@ -57,12 +60,13 @@ public class TransactionDetails {
         this.transactionStatus = transactionStatus;
     }
 
-    public String getAmountPaid() {
+    public long getAmountPaid() {
         return amountPaid;
     }
 
-    public void setAmountPaid(String amountPaid) {
+    public void setAmountPaid(long amountPaid) {
         this.amountPaid = amountPaid;
     }
+
 }
 

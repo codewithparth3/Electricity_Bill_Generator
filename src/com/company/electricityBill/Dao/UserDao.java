@@ -9,13 +9,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDao implements Dao<UserDetails> {
+    private long wallet;
+
+    /**
+     *
+     * @param customerId
+     * @return
+     * @throws SQLException
+     */
     @Override
     public UserDetails getById(long customerId) throws SQLException {
-        String sql = "select * from userDetails where customerId = ?";
+        String sql = "select * from userDetails where customerId = " + customerId + "";
         try {
             Connection connection = DbConnectivity.getConnection();
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setLong(1, customerId);
 
             ResultSet rs = ps.executeQuery();
 
@@ -25,6 +32,7 @@ public class UserDao implements Dao<UserDetails> {
                 userDetails.setCustomerName(rs.getString(3));
                 userDetails.setState(rs.getString(4));
                 userDetails.setUnits(rs.getInt(5));
+                userDetails.setWallet(rs.getLong(6));
 
                 return userDetails;
             }
@@ -36,12 +44,25 @@ public class UserDao implements Dao<UserDetails> {
 
     @Override
     public boolean save(UserDetails userDetails) {
-        return false;
+        String sql = "update userDetails set wallet = ? where customerId = ?";
+        try {
+            Connection connection = DbConnectivity.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setLong(1, userDetails.getWallet());
+            ps.setLong(2, userDetails.getCustomerId());
+
+            int rs = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     @Override
     public boolean update(UserDetails userDetails) {
-        return false;
+        String sql = "update + = ?";
+        return true;
     }
 }
 

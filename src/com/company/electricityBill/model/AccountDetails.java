@@ -1,18 +1,23 @@
 package com.company.electricityBill.model;
 
+/**
+ * represents AccountDetails
+ */
 public class AccountDetails {
     private int id;
-    private String cardNumber;
+    private long customerId;
+    private long cardNumber;
     private int cvv;
     private int pin;
-    private String balance;
+    private long balance;
     private String holderName;
 
     public AccountDetails() {
     }
 
-    public AccountDetails(int id, String cardNumber, int cvv, int pin, String balance, String holderName) {
+    public AccountDetails(int id, long customerId, long cardNumber, int cvv, int pin, long balance, String holderName) {
         this.id = id;
+        this.customerId = customerId;
         this.cardNumber = cardNumber;
         this.cvv = cvv;
         this.pin = pin;
@@ -28,11 +33,19 @@ public class AccountDetails {
         this.id = id;
     }
 
-    public String getCardNumber() {
+    public long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(long customerId) {
+        this.customerId = customerId;
+    }
+
+    public long getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(String cardNumber) {
+    public void setCardNumber(long cardNumber) {
         this.cardNumber = cardNumber;
     }
 
@@ -52,11 +65,11 @@ public class AccountDetails {
         this.pin = pin;
     }
 
-    public String getBalance() {
+    public long getBalance() {
         return balance;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(long balance) {
         this.balance = balance;
     }
 
